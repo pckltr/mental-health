@@ -7,6 +7,8 @@ Ideas of how to take care of yourself.
 
 Add more links, examples or more general info on each solution and create a pull request.
 
+If you have ideas for improvements, please create an issue and let's discuss them.
+
 ## to do
 
 - [ ] checkboxes
