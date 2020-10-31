@@ -59,6 +59,9 @@ ul {
   column-count: 1;
   column-gap: var(--column-gap);
 }
+ul#main.error {
+  column-count: 1;
+}
 
 li {
   display: inline-block;
@@ -103,6 +106,24 @@ a {
   text-decoration: none;
   transition: all 0.1s ease-in-out;
   display: inline-block;
+}
+
+.item-link {
+  position: relative;
+  top: 0;
+  left: 0;
+
+  padding-left: 30px;
+}
+
+.item-link i {
+  position: absolute;
+  top: 50%;
+  left: 0;
+
+  transform: translateY(-50%) translateX(25%);
+
+  color: var(--accent-color, #555);
 }
 
 .item-link a {

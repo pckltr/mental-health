@@ -9,26 +9,68 @@ function renderList(array) {
   array.forEach((item) => {
     const details = document.createElement("li");
 
-    const linkPara = item.link
-      ? `<p class="item-link">
-            <a href="${item.link}" target="_blank">
-            ${item.link}
-          </a>
-        </p>`
-      : "";
-
     details.innerHTML = `
       <h2>${item.title}</h2>
       <p>${item.details}</p>
-      ${linkPara}
+      ${getLink(item.link)}
     `;
 
     main.appendChild(details);
   });
 }
 
+function getLink(link) {
+  if (!link) {
+    return '';
+  }
+
+  const icon = getIconClass(link);
+  const className = icon
+    ? 'fab fa-' + icon
+    : 'fas fa-link'
+  ;
+
+  return `
+    <p class="item-link">
+      <i class="${className}"></i>
+      <a href="${link}" target="_blank">${link}</a>
+    </p>`
+  ;
+}
+
+function getIconClass(link) {
+  const hostname = getHostname(link);
+
+  switch (hostname) {
+    case 'github.com':
+      return 'github';
+    case 'medium.com':
+      return 'medium';
+    case 'www.youtube.com':
+      return 'youtube';
+    case 'reddit.com':
+    case 'redditgrid.com':
+      return 'reddit';
+  }
+
+  return false;
+}
+
+function getHostname(link) {
+  try {
+    const url = new URL(link);
+
+    return url.hostname;
+  } catch(e) {
+    console.warn(e);
+    return false;
+  }
+}
+
 function onFail(error) {
   console.error(error);
+
+  main.classList.add('error');
 
   return {
     info: [
