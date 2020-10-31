@@ -8,20 +8,21 @@ fetch("./data.json")
 function renderList(array) {
   array.forEach((item) => {
     const details = document.createElement("li");
-    var newStr = item.details.replace(
-      /(<a href=")?((https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)))(">(.*)<\/a>)?/gi,
-      function () {
-        return (
-          '<a target="_blank" href="' +
-          arguments[2] +
-          '">' +
-          (arguments[7] || arguments[2]) +
-          "</a>"
-        );
-      }
-    );
-    details.innerHTML = `<h2>${item.title}</h2>
-          <p>${newStr}</p>`;
+
+    const linkPara = item.link
+      ? `<p class="item-link">
+            <a href="${item.link}" target="_blank">
+            ${item.link}
+          </a>
+        </p>`
+      : "";
+
+    details.innerHTML = `
+      <h2>${item.title}</h2>
+      <p>${item.details}</p>
+      ${linkPara}
+    `;
+
     main.appendChild(details);
   });
 }
