@@ -10,6 +10,7 @@
   --font-accent: Poppins, var(--font-sans);
   --background-color: #e4f0ed;
   --text-color: #3e4c54;
+  --card-background: #fff;
   --accent-color-1: #2d98da;
   --accent-color-2: #3867d6;
   --accent-color-3: #8854d0;
@@ -64,7 +65,7 @@ li {
   width: 100%;
   margin: calc(var(--column-gap) / 2) 0;
   padding: 1rem;
-  background: #fff;
+  background: var(--card-background, #fff);
   border-radius: var(--border-radius);
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
