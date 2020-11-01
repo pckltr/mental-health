@@ -11,5 +11,7 @@ If you have ideas for improvements, please create an issue and let's discuss the
 
 ## to do
 
+- [ ] favicon
+- [ ] dark theme
 - [ ] checkboxes
 - [ ] order by category, like first things to do
